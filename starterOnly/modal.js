@@ -31,7 +31,7 @@ document.getElementsByName("reserve")[0].addEventListener("submit", validate);
 function validate(event) {
 
     //first name
-    let firstName = document.getElementById("first").value;
+    let firstName = event.target.first.value;
     let firstNameError = document.getElementById("firstError");
     if (firstName.length < 2) {
         firstNameError.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
@@ -41,7 +41,7 @@ function validate(event) {
         firstNameError.innerHTML = "";
     }
     //last name
-    let lastName = document.getElementById("last").value;
+    let lastName = event.target.last.value;
     let lastNameError = document.getElementById("lastError");
     if (lastName.length < 2) {
         lastNameError.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
@@ -104,6 +104,29 @@ function validate(event) {
     }
 
     if (firstNameError.innerHTML === "" && lastNameError.innerHTML === "" && emailError.innerHTML === "" && birthdateError.innerHTML === "" && quantityError.innerHTML === "" && locationError.innerHTML === "" && checkboxError.innerHTML === "") {
-        alert("Merci ! Votre réservation a été reçue.")
+        let modal_body = document.getElementsByClassName("modal-body")[0];
+        modal_body.innerHTML = "<p class='success'>Merci ! Votre réservation a été reçue.</p>";
+        modal_body.style.textAlign = "center";
+        modal_body.style.fontSize = "1.5rem";
+        modal_body.style.color = "green";
+        modal_body.style.padding = "2rem";
+        modal_body.style.fontWeight = "bold";
+        modal_body.style.backgroundColor = "white";
+        modal_body.style.borderRadius = "10px";
+        modal_body.style.boxShadow = "0 0 10px 0 rgba(0, 0, 0, 0.2)";
+        modal_body.style.margin = "0 auto";
+        modal_body.style.width = "50%";
+        modal_body.style.marginTop = "2rem";
+        modal_body.style.marginBottom = "2rem";
+        modal_body.style.border = "2px solid green";
+        modal_body.style.borderTop = "none";
+        modal_body.style.borderBottom = "none";
+
+        //refresh page if click on close button and
+        closeBtn.forEach((btn) => btn.addEventListener("click", refreshPage));
+        function refreshPage() {
+            window.location.reload();
+        }
+
     }
 }
