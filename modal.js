@@ -17,7 +17,7 @@ const form = document.getElementById("form");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
-NavResponsive.forEach((btn) => btn.addEventListener("click", editNav));
+NavResponsive.addEventListener("click", editNav);
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
@@ -32,7 +32,6 @@ function closeModal() {
 //form
 form.addEventListener("submit", validate);
 function validate(event) {
-
 
     ///Gestion des erreurs
     //first name
@@ -111,16 +110,28 @@ function validate(event) {
     // si pas d'erreur, message de confirmation
     if (firstNameError.innerHTML === "" && lastNameError.innerHTML === "" && emailError.innerHTML === "" && birthdateError.innerHTML === "" && quantityError.innerHTML === "" && locationError.innerHTML === "" && checkboxError.innerHTML === "") {
         let modal_body = document.getElementsByClassName("modal-body")[0];
+        let content = document.querySelector(".content");
         modal_body.innerHTML = "<p class='success'>Merci pour votre inscription</p>";
+        let success = document.querySelector(".success");
         modal_body.style.textAlign = "center";
         modal_body.style.fontSize = "36px";
-modal_body.style.width = "100%";
-modal_body.style.height = "100%";
-modal_body.style.padding = "10px";
-modal_body.style.margin = "10px";
-modal_body.style.backgroundColor = "#232323";
-
-
+        modal_body.style.width = "100vw";
+        modal_body.style.height = "100vh";
+        modal_body.style.display = "flex";
+        modal_body.style.justifyContent = "center";
+        modal_body.style.alignItems = "center";
+        content.style.margin = "0";
+        content.style.padding = "0";
+        content.style.maxWidth = "none";
+        success.style.display = "flex";
+        success.style.justifyContent = "center";
+        success.style.alignItems = "center";
+        success.style.width = "100%";
+        success.style.height = "100%";
+        let closeBtn = document.querySelectorAll(".button");
+        closeBtn.style.position = "absolute";
+        closeBtn.style.bottom = "5px";
+        modal_body.innerHTML += '<input class="button btn-submit" type="submit" value="C’est parti"/>';
 
         //refresh page if click on close button
         closeBtn.forEach((btn) => btn.addEventListener("click", refreshPage));
