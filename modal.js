@@ -127,17 +127,19 @@ function validate(event) {
         success.style.justifyContent = "center";
         success.style.alignItems = "center";
         success.style.width = "100%";
-        success.style.height = "100%";
-        let closeBtn = document.querySelectorAll(".button");
-        closeBtn.style.position = "absolute";
-        closeBtn.style.bottom = "5px";
-        modal_body.innerHTML += '<input class="button btn-submit" type="submit" value="C’est parti"/>';
+        modal_body.innerHTML += '<input class="button bouton btn-submit" type="submit" value="Fermer">';
+        let btnSubmit = document.querySelector(".btn-submit");
+btnSubmit.style.position = "absolute";
+btnSubmit.style.bottom = "0";
+
+        //fermer modal si click sur bouton fermer avec refresh page
+        btnSubmit.addEventListener("click", refreshPage);
+
 
         //refresh page if click on close button
         closeBtn.forEach((btn) => btn.addEventListener("click", refreshPage));
         function refreshPage() {
             window.location.reload();
         }
-
     }
 }
