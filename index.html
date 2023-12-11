@@ -14,7 +14,7 @@
 <body>
 <div class="topnav" id="myTopnav">
     <div class="header-logo">
-        <img alt="logo" src="Logo.png" width="auto" height="auto"/>
+        <img alt="logo" src="Logo.png"/>
     </div>
     <div class="main-navbar">
 
@@ -23,7 +23,7 @@
         <a href="#"><span>À propos</span></a>
         <a href="#"><span>Contact</span></a>
         <a href="#"><span>Évènements passés</span></a>
-        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+        <a href="" class="icon" id="navResponsive">
             <i class="fa fa-bars"></i>
         </a>
     </div>
@@ -53,21 +53,21 @@
         <div class="content">
             <span class="close"></span>
             <div class="modal-body">
-                <form name="reserve" action="index.html" method="get" onsubmit="return validate(event)">
-                    <div class="formData">
-                        <label for="first">Prénom</label><br>
-                        <input class="text-control" type="text" id="first" name="first" minlength="2"/>
-                        <br>
-                        <span class="error" id="firstError"></span>
-                    </div>
-                    <div class="formData">
-                        <label for="last">Nom</label><br>
-                        <input class="text-control" type="text" id="last" name="last"/>
-                        <br>
-                        <span class="error" id="lastError"></span>
-                    </div>
-                    <div class="formData">
-                        <label for="email">E-mail</label><br>
+                <form action="index.html" method="get" id="form">
+                        <div class="formData">
+                            <label for="first">Prénom</label><br>
+                            <input class="text-control" type="text" id="first" name="first"/>
+                            <br>
+                            <span class="error" id="firstError"></span>
+                        </div>
+                        <div class="formData">
+                            <label for="last">Nom</label><br>
+                            <input class="text-control" type="text" id="last" name="last"/>
+                            <br>
+                            <span class="error" id="lastError"></span>
+                        </div>
+                        <div class="formData">
+                            <label for="email">E-mail</label><br>
                         <input class="text-control" type="email" id="email" name="email"/>
                         <br>
                         <span class="error" id="emailError"></span>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="formData">
                         <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                        <input type="text" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                        <input type="text" class="text-control" id="quantity" name="quantity">
                         <br>
                         <span class="error" id="quantityError"></span>
                     </div>
