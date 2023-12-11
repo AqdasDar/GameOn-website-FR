@@ -10,7 +10,6 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelectorAll(".close");
 
 // launch modal event
@@ -21,6 +20,7 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
+
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
@@ -30,8 +30,9 @@ function closeModal() {
 document.getElementsByName("reserve")[0].addEventListener("submit", validate);
 function validate(event) {
 
+
     //first name
-    let firstName = event.target.first.value;
+     let firstName = event.target.first.value;
     let firstNameError = document.getElementById("firstError");
     if (firstName.length < 2) {
         firstNameError.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
@@ -122,7 +123,7 @@ function validate(event) {
         modal_body.style.borderTop = "none";
         modal_body.style.borderBottom = "none";
 
-        //refresh page if click on close button and
+        //refresh page if click on close button
         closeBtn.forEach((btn) => btn.addEventListener("click", refreshPage));
         function refreshPage() {
             window.location.reload();
